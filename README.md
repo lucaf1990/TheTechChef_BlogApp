@@ -15,9 +15,11 @@ The Tech Chef offers a range of exciting features to enhance your recipe experie
 ## Technologies Used 🛠️🔧📚
 
 ![Screenshot 2023-05-31 alle 16 57 05](https://github.com/lucaf1990/TheTechChef_BlogApp/assets/117093377/b73c7dc1-516a-427a-ab22-f983ae294593)
-[Watch the Video]([https://www.google.com](https://drive.google.com/drive/folders/1BvCesQdwI0D12avgdsPDRG_wLRxT_w-B?usp=sharing))
-The Tech Chef leverages a variety of technologies to deliver its robust functionality:
 
+
+
+The Tech Chef leverages a variety of technologies to deliver its robust functionality:
+[Watch the Video]([https://www.google.com](https://drive.google.com/drive/folders/1BvCesQdwI0D12avgdsPDRG_wLRxT_w-B?usp=sharing))
 ### Frontend 🌐🖥️
 
 - JavaScript 🟨 (@fortawesome/fontawesome-svg-core: Font Awesome SVG icons library)
