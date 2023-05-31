@@ -1,0 +1,119 @@
+.carousel {
+  display: flex;
+  overflow-x: scroll;
+
+  padding: 30px;
+}
+.carousel:hover {
+  scroll-snap-type: x mandatory;
+}
+.carousel__container {
+  white-space: nowrap;
+  display: inline-block;
+}
+.expanded {
+  transform: scale(1.5);
+  z-index: 1;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+.carousel::-webkit-scrollbar {
+  display: none; /* Rimuove le barre di scorrimento */
+}
+.categories_title {
+  color: rgb(77, 55, 102);
+  font-size: 28px;
+  position: absolute;
+  padding-left: 30px;
+}
+
+.carousel_item {
+  border-radius: 20px;
+  background-color: #de8816;
+  overflow: hidden;
+  margin-right: 10px;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-transition: 1000ms all;
+  transition: 1000ms all;
+  -webkit-transform-origin: center left;
+  transform-origin: center left;
+  position: relative;
+}
+
+.carousel_item:hover ~ .carousel_item {
+  -webkit-transform: translate3d(100px, 0, 0);
+  transform: translate3d(100px, 0, 0);
+}
+
+.carousel__container:hover .carousel_item {
+  opacity: 0.3;
+}
+
+.carousel__container:hover .carousel_item:hover {
+  -webkit-transform: scale(1.5);
+  transform: scale(1.2);
+  opacity: 1;
+  z-index: 2;
+}
+
+.carousel_item__img {
+  width: 200px;
+  height: 250px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.carousel_item__details {
+  background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(rgba(0, 0, 0, 0.9)),
+    to(rgba(0, 0, 0, 0))
+  );
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  font-size: 10px;
+  opacity: 0;
+  -webkit-transition: 450ms opacity;
+  transition: 450ms opacity;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.carousel_item__details:hover {
+  opacity: 1;
+}
+
+.carousel_item__details span {
+  /* width: 10px;
+    height: 10px; */
+  font-size: 0.9rem;
+  color: #2ecc71;
+  /* background-color: white; */
+}
+.background {
+  z-index: 0;
+  top: 0;
+  left: 0;
+}
+
+.carousel_item__details .controls {
+  padding-top: 180px;
+}
+
+.carousel_item__details .carouselitem__detailstitle,
+.carouselitem__detailssubtitle {
+  color: #fff;
+  margin: 5px 0;
+}
