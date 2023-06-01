@@ -18,7 +18,7 @@ The Tech Chef offers a range of exciting features to enhance your recipe experie
 
 
 The Tech Chef leverages a variety of technologies to deliver its robust functionality:
-[Watch the Video](https://drive.google.com/drive/folders/1BvCesQdwI0D12avgdsPDRG_wLRxT_w-B?usp=sharing)
+[Watch the Video](https://drive.google.com/drive/folders/1BvCesQdwI0D12avgdsPDRG_wLRxT_w-B?usp=sharing](https://www.linkedin.com/feed/update/urn:li:activity:7068879766312894464/)
 
 ### Frontend 🌐🖥️
 
