@@ -6,7 +6,6 @@ import {
   IoNotificationsSharp,
   MdSettings,
   BsArrowLeft,
-  TbChefHat,
   RiLogoutCircleRLine,
   BsSearch,
 } from "react-icons/all";
@@ -45,9 +44,7 @@ export function SideBar() {
                 <a href="/search" title="Search">
                   <BsSearch></BsSearch>
                 </a>
-                <a href="/main" title="TheTechChef">
-                  <TbChefHat />
-                </a>
+                <a href="/main" title="TheTechChef"></a>
                 <a href="/profile" title="Profile">
                   <AssignmentIndSharpIcon />
                 </a>
@@ -96,7 +93,6 @@ export function SideBar() {
                     <p style={{ color: "#e67402" }}>Food Lover</p>
                   </a>
                   <a href="/main" title="TheTechChef">
-                    <TbChefHat />
                     <p style={{ color: "#e67402" }}>TechChef</p>
                   </a>
                   <a href="/profile" title="Profile">

@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
     "target": "ES2016",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "es2015"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -16,7 +21,9 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@elements/*": ["components/elements/*"]
+      "@elements/*": [
+        "components/elements/*"
+      ]
     },
     "plugins": [
       {
@@ -25,11 +32,14 @@
     ]
   },
   "include": [
+    "./src/**/*",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
     "types/next-auth.d.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

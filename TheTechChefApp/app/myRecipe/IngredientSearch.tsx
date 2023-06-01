@@ -67,7 +67,7 @@ export const IngredientSearch = () => {
       const res = await fetch(`http://localhost:8080/ingredients/all`, {
         method: "GET",
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbGU5OCIsImlhdCI6MTY4NTM3NDI1MywiZXhwIjoxNjg1OTc5MDUzfQ.b_HCwb2HU1dXbpkKemJnq_LQw2BTE0eOg6USM4kzzKwikdI4fNTsSoZmvF8f_ruI`,
+          Authorization: `Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJsdWNhZiIsImlhdCI6MTY4NTYyMzUyNSwiZXhwIjoxNjg2MjI4MzI1fQ.SOIX_Bj2mD1RCecatL7rt0y6GgJ5ctMC3izO-NhcMsoDa_zzDEiNWHKh4oBIjzTc`,
         },
       });
       if (res.ok) {

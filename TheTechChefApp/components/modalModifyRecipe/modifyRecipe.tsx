@@ -22,6 +22,7 @@ const ModifyRecipe: React.FC<ModifyRecipeProps & { recipe: Recipe }> = ({
   const [preparationTime, setPreparationTime] = useState(
     recipe.preparationTime
   );
+  const [urlImag, setUrlImag] = useState(recipe.urlImag);
   const [ingredientCategory, setIngredientCategory] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [cookingTime, setCookingTime] = useState(recipe.cookingTime);
@@ -36,7 +37,6 @@ const ModifyRecipe: React.FC<ModifyRecipeProps & { recipe: Recipe }> = ({
   const [ingredients, setIngredients] = useState<Ingredients[]>(
     recipe.ingredients
   );
-  const [edit, setEdit] = useState(false);
   const [ingredientName, setIngredientName] = useState("");
   const [ingredientQuantity, setIngredientQuantity] = useState("");
   const addIngredient = () => {
@@ -69,6 +69,7 @@ const ModifyRecipe: React.FC<ModifyRecipeProps & { recipe: Recipe }> = ({
       presentation: presentation,
       storageInstructions: storageInstructions,
       ingredients: ingredients,
+      urlImag: urlImag,
     };
     try {
       const data = await fetch(`http://localhost:8080/recipe/update/${id}`, {

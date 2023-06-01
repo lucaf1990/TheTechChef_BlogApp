@@ -157,8 +157,15 @@ public class RecipeController {
 		return new ResponseEntity<>(recipes, HttpStatus.OK);
 	}
 	@GetMapping("/user")
+	@PreAuthorize("hasRole('ROLE_TECHCHEF_ADMIN') or hasRole('ROLE_TECHCHEF_USER')")
 	public ResponseEntity<TheTechChefUser> getUser() {
 		return new ResponseEntity<TheTechChefUser>(authService.getCurrentUser(), HttpStatus.OK);
+
+	}
+	@GetMapping("/user/all")
+	@PreAuthorize("hasRole('ROLE_TECHCHEF_ADMIN') or hasRole('ROLE_TECHCHEF_USER')")
+	public ResponseEntity<List<TheTechChefUser>> getAllUser() {
+		return new ResponseEntity<List<TheTechChefUser>>(authService.getAllUser(), HttpStatus.OK);
 
 	}
 }

@@ -6,7 +6,7 @@ import {
 } from "../../components/interfaces/interfaces";
 import React, { useState } from "react";
 import style from "../../styles/Home.module.scss";
-import { BsReply, BsSendPlus } from "react-icons/bs";
+import { BsReply } from "react-icons/bs";
 import { Comment } from "../interfaces/interfaces";
 
 const MyComment: React.FC<ComCommentProps & { recipe: Recipe }> = ({
@@ -98,7 +98,7 @@ const MyComment: React.FC<ComCommentProps & { recipe: Recipe }> = ({
           method: "POST",
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJsdWNhZiIsImlhdCI6MTY4NTA0ODMxMCwiZXhwIjoxNjg1NjUzMTEwfQ.siQBuy2oM0aFN0TjXIdrZ8O1yMquYNf_JVaLm3hcVi-s3yQFOwwS2RzOhc4xR8xv",
+              "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJsdWNhZiIsImlhdCI6MTY4NTY1NDczNywiZXhwIjoxNjg2MjU5NTM3fQ.RE1oEFO4O78fvae3sX4UXWYwIHmDnYTQsAdZvhoZkAb_OptnvLfXvBvCXXBxFMa1",
             "Content-Type": "application/json",
           },
           body: JSON.stringify(newComment),
@@ -135,9 +135,7 @@ const MyComment: React.FC<ComCommentProps & { recipe: Recipe }> = ({
               className={style.commentbtn}
               type="button"
               onClick={postComment}
-            >
-              <BsSendPlus></BsSendPlus>
-            </button>
+            ></button>
           </form>
         </div>
       </div>

@@ -49,7 +49,7 @@ const MyRecipe = () => {
       const data = await fetch("http://localhost:8080/recipe/create", {
         method: "POST",
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJBbGU5OCIsImlhdCI6MTY4NDgyNjU5OCwiZXhwIjoxNjg1NDMxMzk4fQ.1ce9Wqj_G2fhtDNgOm5h70lsTT-yvn9sBGSwcWd_IUeJJnh8xHgEXoj0LHBAFxiZ`,
+          Authorization: `Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJsdWNhZiIsImlhdCI6MTY4NTY1NDM0NiwiZXhwIjoxNjg2MjU5MTQ2fQ.IyIKWVTARFljRZs6OA6XCrpuChf1htsR81TAhKW_bz7z3eHL6q-GHfxWXadjsSRU`,
           Accept: "application/json",
           "Content-type": "application/json",
         },

@@ -1,6 +1,7 @@
 package com.app.TheTechChefBlog.auth.service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.http.HttpStatus;
@@ -103,6 +104,10 @@ public class AuthServiceImpl implements AuthService {
 			// user non autenicato
 			return null;
 		}
+	}
+	
+	public List<TheTechChefUser> getAllUser() {
+		return userRepository.findAll();
 	}
 
 	public void changePermissions(String s, Role roles) {

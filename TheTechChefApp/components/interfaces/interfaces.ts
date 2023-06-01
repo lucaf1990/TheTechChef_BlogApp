@@ -95,7 +95,7 @@ export interface Recipe {
   costLevel: string;
   presentation: string;
   storageInstructions: string;
-  recipePhotos: string | null;
+  urlImag: string | null;
   ingredients: Ingredient[];
   comments: Comment[];
 }
