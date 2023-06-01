@@ -12,7 +12,7 @@ public interface RecipeService {
 
 	Recipe createRecipe(RecipeDTO recipeDTO);
 
-	String updateRecipe(Recipe recipe);
+	String updateRecipe(Long id, Recipe recipe);
 
 	String deleteRecipe(Long id);
 }

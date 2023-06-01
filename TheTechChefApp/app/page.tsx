@@ -9,6 +9,7 @@ import chefRobot from "../app/assets/KillerFitfh_The_tech_chef_logo_a_minimal_3d
 import Link from "next/link";
 import { animated } from "react-spring";
 import { Props } from "components/interfaces/interfaces";
+import { Container } from "react-bootstrap";
 
 const HomePage = ({ size }: Props) => {
   const [firstEntrance, setFirstEntrance] = useState(0);
@@ -22,8 +23,8 @@ const HomePage = ({ size }: Props) => {
     to: async (next) => {
       while (true) {
         if (firstEntrance >= 1) return;
-        await next({ transform: "translateX(0%)", opacity: 1 });
-        await next({ transform: "translateX(50%)", opacity: 0 });
+        await next({ transform: "translateX(-40%)", opacity: 1 });
+        await next({ transform: "translateX(20%)", opacity: 0 });
         setShowRobot(true);
         setFirstEntrance((count) => count + 1);
         setMessage(true);
@@ -54,12 +55,13 @@ const HomePage = ({ size }: Props) => {
   }, [message]);
 
   return (
-    <main className="style.main">
+    <Container>
       <div
         className={style.description}
         style={{
           display: "flex",
           alignItems: "center",
+          justifyContent: "start",
         }}
       >
         {showRobot && (
@@ -72,12 +74,12 @@ const HomePage = ({ size }: Props) => {
           </animated.div>
         )}
         <div>
-          <div style={{ marginLeft: "150px" }}>
+          <div>
             {message && <p className={style.description}>{typedMessage}</p>}
           </div>
           {animationFinished && (
             <animated.div style={{ ...buttonsAnimation }}>
-              <div className={style.btn}>
+              <div className="d-flex justify-content-around mt-5">
                 <Zoom direction="right" triggerOnce>
                   <Link href={"/auth/signin"}>
                     <button className={style.homePageBtn}>SIGN IN</button>
@@ -100,7 +102,7 @@ const HomePage = ({ size }: Props) => {
           )}
         </div>
       </div>
-    </main>
+    </Container>
   );
 };
 export default HomePage;

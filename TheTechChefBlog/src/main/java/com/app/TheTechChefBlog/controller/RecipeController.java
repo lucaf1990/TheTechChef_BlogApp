@@ -50,10 +50,10 @@ public class RecipeController {
 		return new ResponseEntity<String>(recipeService.deleteRecipe(id), HttpStatus.OK);
 	}
 
-	@PostMapping(value={"/update"},consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value={"/update/{id}"},consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	//@PreAuthorize("hasRole('ROLE_TECHCHEF_ADMIN') or hasRole('ROLE_TECHCHEF_USER')")
-	public ResponseEntity<?> updateRecipe(@RequestBody Recipe recipe ) {
-		return new ResponseEntity<String>(recipeService.updateRecipe(recipe), HttpStatus.OK);
+	public ResponseEntity<?> updateRecipe(@RequestBody Recipe recipe,@PathVariable Long id) {
+		return new ResponseEntity<String>(recipeService.updateRecipe(id,recipe), HttpStatus.OK);
 	}
 
 	@GetMapping("/specific/{id}")
@@ -70,21 +70,21 @@ public class RecipeController {
 	}
 	@GetMapping("/difficulty/{difficulty}")
 	@PreAuthorize("hasRole('ROLE_TECHCHEF_ADMIN') or hasRole('ROLE_TECHCHEF_USER')")
-	public ResponseEntity<List<Recipe>> findbyDifficulty(@PathVariable Difficulty difficulty) {
+	public ResponseEntity<List<Recipe>> findbyDifficulty(@PathVariable String difficulty) {
 		return new ResponseEntity<List<Recipe>>(recipeService.getRecipeByDifficulty(difficulty), HttpStatus.OK);
 
 	}
 
 	@GetMapping("/cookingTime/{cookingTime}")
 	@PreAuthorize("hasRole('ROLE_TECHCHEF_ADMIN') or hasRole('ROLE_TECHCHEF_USER')")
-	public ResponseEntity<List<Recipe>> findRecipesByCookingTime(@PathVariable CookingTime cookingTime) {
+	public ResponseEntity<List<Recipe>> findRecipesByCookingTime(@PathVariable String cookingTime) {
 		return new ResponseEntity<List<Recipe>>(recipeService.getRecipeByCookingTime(cookingTime), HttpStatus.OK);
 
 	}
 
 	@GetMapping("/preparationTime/{preparationTime}")
 	@PreAuthorize("hasRole('ROLE_TECHCHEF_ADMIN') or hasRole('ROLE_TECHCHEF_USER')")
-	public ResponseEntity<List<Recipe>> findRecipesByPreparationTime(@PathVariable PreparationTime preparationTime) {
+	public ResponseEntity<List<Recipe>> findRecipesByPreparationTime(@PathVariable String preparationTime) {
 		return new ResponseEntity<List<Recipe>>(recipeService.getRecipeByPreparationTime(preparationTime),
 				HttpStatus.OK);
 

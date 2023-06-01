@@ -50,7 +50,7 @@ public ResponseEntity<CommentSection> postSectionComment(@RequestBody CommentDTO
 
 @PostMapping(value={"/add/c/{idCommentSection}"},consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 //@PreAuthorize("hasRole('ROLE_TECHCHEF_ADMIN') or hasRole('ROLE_TECHCHEF_USER')")
-public ResponseEntity<Comment> postComment(@RequestBody CommentDTO comment, Long idCommentSection){
+public ResponseEntity<Comment> postComment(@RequestBody CommentDTO comment, @PathVariable Long idCommentSection){
 	return new ResponseEntity<Comment>(commentService.addComment(comment,idCommentSection),HttpStatus.OK);
 }
 

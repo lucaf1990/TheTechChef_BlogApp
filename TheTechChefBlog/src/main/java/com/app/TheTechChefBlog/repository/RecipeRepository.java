@@ -29,20 +29,20 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 	Optional<Recipe> findById(Long id);
 	
 
-	List<Recipe> findByCookingTime(CookingTime cookingTime);
+	List<Recipe> findByCookingTime(String cookingTime);
 	List<Recipe> findAll();
 
 	Page<Recipe> findByCookingTime(Pageable page, CookingTime cookingTime);
 
-	List<Recipe> findByPreparationTime(PreparationTime preprationTime);
+	List<Recipe> findByPreparationTime(String preprationTime);
 
 	Page<Recipe> findByPreparationTime(Pageable page, PreparationTime preprationTime);
 
-	List<Recipe> findByDifficultyLevel(Difficulty difficulty);
+	List<Recipe> findByDifficultyLevel(String difficulty);
 
 	Page<Recipe> findByDifficultyLevel(Pageable page, Difficulty difficulty);
 
-	List<Recipe> findByCostLevel(Cost costLevel);
+	List<Recipe> findByCostLevel(String costLevel);
 
 	Page<Recipe> findByCostLevel(Pageable page, Cost costLevel);
 

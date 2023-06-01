@@ -98,6 +98,7 @@ export const CardMain = ({ title }: { title: string }) => {
     <>
       {session ? (
         <Container>
+          <h3>{title}</h3>
           <Row className="justify-content-around">
             {recipe
               .map((recipe, i) => ({ ...recipe, index: i }))
@@ -110,7 +111,7 @@ export const CardMain = ({ title }: { title: string }) => {
                 return (
                   <Col key={index} md={5} className={myStyle.card}>
                     <div className={myStyle.card_content}>
-                      <h2 className="sticky-top">{recipe.title}</h2>
+                      <h2>{recipe.title}</h2>
 
                       <div className={myStyle.pics_container}>
                         <div className="d-flex flex-column justify-content-between ">

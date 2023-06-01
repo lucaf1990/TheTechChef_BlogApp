@@ -134,17 +134,17 @@ export const IngredientSearch = () => {
           <Table striped bordered>
             <thead>
               <tr>
-                <th style={{ color: "black" }}>Category</th>
-                <th style={{ color: "black" }}>Name</th>
-                <th style={{ color: "black" }}>Quantity</th>
+                <th>Category</th>
+                <th>Name</th>
+                <th>Quantity</th>
               </tr>
             </thead>
-            <tbody style={{ color: "black" }}>
+            <tbody>
               {filteredIngredients.map((ingredient, index) => (
                 <tr key={index}>
-                  <td style={{ color: "black" }}>{ingredient.category}</td>
-                  <td style={{ color: "black" }}>{ingredient.name}</td>
-                  <td style={{ color: "black" }}>
+                  <td>{ingredient.category}</td>
+                  <td>{ingredient.name}</td>
+                  <td>
                     <Form.Control
                       type="text"
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -160,7 +160,7 @@ export const IngredientSearch = () => {
                         handleAddIngredient(ingredient);
                       }}
                     >
-                      Add
+                      ADD
                     </Button>
                   </td>
                 </tr>
@@ -169,6 +169,7 @@ export const IngredientSearch = () => {
           </Table>
         </>
       )}
+
       <br />
       <h6 style={{ color: "black" }}>Selected Ingredients</h6>
       <Table striped bordered>

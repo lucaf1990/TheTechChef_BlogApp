@@ -84,7 +84,7 @@ export function SideBar() {
                   </button>
                 </span>
                 <div>
-                  <h1 style={{ color: "#e67402" }}>THE TECH CHEF</h1>
+                  <h6 style={{ color: "#e67402" }}>THE TECH CHEF</h6>
                 </div>
                 <ul>
                   <a href="/myRecipe" title="Your recipe">

@@ -173,11 +173,23 @@ const MyRecipe = () => {
                         <option disabled={true} value="">
                           Preparation Time
                         </option>
+                        <option value="    Less than 15 minutes">
+                          Less than 15 minutes
+                        </option>
                         <option value=" Between 15 and 30 minutes">
                           Between 15 and 30 minutes
                         </option>
+                        <option value="Around 30 minutes">
+                          Around 30 minutes
+                        </option>
                         <option value=" Between 30 and 60 minutes">
                           Between 30 and 60 minutes
+                        </option>
+                        <option value=" Between 30 and 60 minutes">
+                          Between 30 and 60 minutes
+                        </option>
+                        <option value=" More then 60 minutes">
+                          More then 60 minutes
                         </option>
                       </Form.Select>
                     </Form.Group>
@@ -197,6 +209,9 @@ const MyRecipe = () => {
                         <option value=" Between 15 and 30 minutes">
                           Between 15 and 30 minutes
                         </option>
+                        <option value="Around 30 minutes">
+                          Around 30 minutes
+                        </option>
                         <option value=" Between 30 and 60 minutes">
                           Between 30 and 60 minutes
                         </option>
@@ -205,6 +220,22 @@ const MyRecipe = () => {
                         </option>
                       </Form.Select>
                     </Form.Group>
+                    <Form.Group controlId="difficulty">
+                      <Form.Select
+                        style={{ border: "1px solid #e57402", color: "black" }}
+                        className={style.register}
+                        value={difficultyLevel}
+                        onChange={(e) => setDifficultyLevel(e.target.value)}
+                      >
+                        <option disabled={true} value="">
+                          Difficulty
+                        </option>
+                        <option value="Low cost">Low cost</option>
+                        <option value="Medium cost">Medium cost</option>
+                        <option value="High cost">High cost</option>
+                      </Form.Select>
+                    </Form.Group>
+
                     <Form.Group controlId="Cost">
                       <Form.Select
                         style={{ border: "1px solid #e57402", color: "black" }}
@@ -215,9 +246,9 @@ const MyRecipe = () => {
                         <option disabled={true} value="">
                           Cost
                         </option>
-                        <option value="Low cost">Low cost</option>
-                        <option value="Medium cost">Medium cost</option>
-                        <option value="High cost">High cost</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
                       </Form.Select>
                     </Form.Group>
 

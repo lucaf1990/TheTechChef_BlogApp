@@ -99,7 +99,7 @@ public class RecipeServiceImpl implements RecipeService {
 
 	}
 
-	public List<Recipe> getRecipeByCookingTime(CookingTime cookingTime) {
+	public List<Recipe> getRecipeByCookingTime(String cookingTime) {
 		if (!recipeRepo.findAll().isEmpty()) {
 			return recipeRepo.findByCookingTime(cookingTime);
 
@@ -119,7 +119,7 @@ public class RecipeServiceImpl implements RecipeService {
 
 	}
 
-	public List<Recipe> getRecipeByPreparationTime(PreparationTime preparationTime) {
+	public List<Recipe> getRecipeByPreparationTime(String preparationTime) {
 
 		if (!recipeRepo.findAll().isEmpty()) {
 			return recipeRepo.findByPreparationTime(preparationTime);
@@ -139,7 +139,7 @@ public class RecipeServiceImpl implements RecipeService {
 
 	}
 
-	public List<Recipe> getRecipeByCostLevel(Cost costLevel) {
+	public List<Recipe> getRecipeByCostLevel(String costLevel) {
 		if (!recipeRepo.findAll().isEmpty()) {
 			return recipeRepo.findByCostLevel(costLevel);
 		} else {
@@ -148,7 +148,7 @@ public class RecipeServiceImpl implements RecipeService {
 
 	}
 
-	public List<Recipe> getRecipeByDifficulty(Difficulty difficulty) {
+	public List<Recipe> getRecipeByDifficulty(String difficulty) {
 		if (!recipeRepo.findAll().isEmpty()) {
 			return recipeRepo.findByDifficultyLevel(difficulty);
 		} else {
@@ -180,15 +180,18 @@ public class RecipeServiceImpl implements RecipeService {
 			throw new MyAPIException(HttpStatus.NOT_FOUND, "........");
 		}
 
-	}public String updateRecipe(Recipe recipe) {
+	}public String updateRecipe(Long id, Recipe recipe) {
 		
-	if (recipeRepo.existsById(recipe.getId())) {
+	if (recipeRepo.existsById(id)){
 			recipeRepo.save(recipe);
 			return "Recipe correctly updtated";
 		} else {
 			throw new MyAPIException(HttpStatus.NOT_FOUND, "Recipe was not found ");
 		}
 	}
+
+
+	
 
 
 

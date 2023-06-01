@@ -22,6 +22,8 @@ const ModifyRecipe: React.FC<ModifyRecipeProps & { recipe: Recipe }> = ({
   const [preparationTime, setPreparationTime] = useState(
     recipe.preparationTime
   );
+  const [ingredientCategory, setIngredientCategory] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [cookingTime, setCookingTime] = useState(recipe.cookingTime);
   const [difficultyLevel, setDifficultyLevel] = useState(
     recipe.difficultyLevel
@@ -36,6 +38,23 @@ const ModifyRecipe: React.FC<ModifyRecipeProps & { recipe: Recipe }> = ({
   );
   const [edit, setEdit] = useState(false);
   const [ingredientName, setIngredientName] = useState("");
+  const [ingredientQuantity, setIngredientQuantity] = useState("");
+  const addIngredient = () => {
+    const newIngredient = {
+      category: ingredientCategory,
+      name: ingredientName,
+      quantity: ingredientQuantity,
+    };
+
+    setIngredients([...ingredients, newIngredient]);
+    setIngredientName("");
+    setIngredientQuantity("");
+  };
+  const removeIngredient = (index: number) => {
+    const updatedIngredients = [...ingredients];
+    updatedIngredients.splice(index, 1);
+    setIngredients(updatedIngredients);
+  };
   async function modifyRecipe(Recipe: Recipe) {
     const recipeModified: Recipe = {
       ...recipe,
@@ -52,10 +71,10 @@ const ModifyRecipe: React.FC<ModifyRecipeProps & { recipe: Recipe }> = ({
       ingredients: ingredients,
     };
     try {
-      const data = await fetch(`http://localhost:8080/recipe/update`, {
-        method: "POST",
+      const data = await fetch(`http://localhost:8080/recipe/update/${id}`, {
+        method: "PUT",
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJBbGU5OCIsImlhdCI6MTY4NDgyNjU5OCwiZXhwIjoxNjg1NDMxMzk4fQ.1ce9Wqj_G2fhtDNgOm5h70lsTT-yvn9sBGSwcWd_IUeJJnh8xHgEXoj0LHBAFxiZ`,
+          Authorization: `Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJsdWNhZiIsImlhdCI6MTY4NTYyMzUyNSwiZXhwIjoxNjg2MjI4MzI1fQ.SOIX_Bj2mD1RCecatL7rt0y6GgJ5ctMC3izO-NhcMsoDa_zzDEiNWHKh4oBIjzTc`,
           Accept: "application/json",
 
           "Content-type": "application/json",
@@ -70,23 +89,14 @@ const ModifyRecipe: React.FC<ModifyRecipeProps & { recipe: Recipe }> = ({
 
   return (
     <>
-      <div
-        className="d-flex "
-        onMouseOver={() => {
-          setEdit(true);
-        }}
-        onMouseOut={() => {
-          setEdit(false);
-        }}
-      >
+      <div className="d-flex ">
         <BsPencil
-          className={style.hover_element}
+          style={{ cursor: "pointer" }}
           data-tooltip="Edit Recipe"
           onClick={() => {
             setShowModal(true);
           }}
         ></BsPencil>{" "}
-        {edit && <p className="ps-1">Edit</p>}
       </div>
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
@@ -182,11 +192,93 @@ const ModifyRecipe: React.FC<ModifyRecipeProps & { recipe: Recipe }> = ({
           </Form.Group>
 
           <div>
-            {" "}
-            <IngredientSearch />
+            <div>
+              <Table striped bordered>
+                <thead>
+                  <tr>
+                    <th>INGREDIENTS</th>
+                    <th>QUANTITY</th>
+                    <th>ACTIONS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {ingredients.map((ingr, i) => {
+                    return (
+                      <tr key={i}>
+                        <td>{ingr.name}</td>
+                        <td>{ingr.quantity}</td>
+                        <td>
+                          <button
+                            className={style.btnSng}
+                            onClick={() => removeIngredient(i)}
+                          >
+                            Remove
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </Table>
+            </div>
+            <div>
+              <label>Ingredient Category</label>
+              <select
+                className={style.InputLabel}
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+              >
+                <option style={{ color: "black" }}>Select Category</option>
+                {[
+                  "Fruit",
+                  "Vegetable",
+                  "Meat",
+                  "Fish and Seafood",
+                  "Dairy",
+                  "Grains and Legumes",
+                  "Herbs and Spices",
+                  "Oils and Vinegars",
+                  "Nuts and Seeds",
+                  "Sweeteners",
+                  "Condiments and Sauces",
+                  "Beverages",
+                  "Baking Supplies",
+                  "Snacks and Treats",
+                  "Frozen Foods",
+                  "Canned and Packaged Goods",
+                ].map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+              <div className="d-flex justify-content-around">
+                <input
+                  style={{ color: "white" }}
+                  className={style.InputLabel}
+                  type="text"
+                  value={ingredientName}
+                  onChange={(e) => setIngredientName(e.target.value)}
+                  placeholder="Ingredient Name"
+                />
+                <input
+                  className={style.InputLabel}
+                  type="text"
+                  value={ingredientQuantity}
+                  onChange={(e) => setIngredientQuantity(e.target.value)}
+                  placeholder="Ingredient Quantity"
+                />
+              </div>
+              <button
+                className={`${style.btnSng} mt-5`}
+                onClick={addIngredient}
+              >
+                ADD
+              </button>
+            </div>
           </div>
 
-          <Form.Group controlId="instructions">
+          <Form.Group controlId="instructions" className="mt-5">
             <Form.Label>Recipe Instruction</Form.Label>
             <Form.Control
               placeholder="Recipe Instruction"
@@ -238,7 +330,7 @@ const ModifyRecipe: React.FC<ModifyRecipeProps & { recipe: Recipe }> = ({
               setTitle("");
             }}
           >
-            Exit
+            EXIT
           </Button>
           <Button
             style={{ fontSize: "1em" }}
@@ -254,7 +346,7 @@ const ModifyRecipe: React.FC<ModifyRecipeProps & { recipe: Recipe }> = ({
               setTitle(" ");
             }}
           >
-            Clean Fields
+            CLEAN
           </Button>
           <Button
             style={{ fontSize: "1em" }}
@@ -263,7 +355,7 @@ const ModifyRecipe: React.FC<ModifyRecipeProps & { recipe: Recipe }> = ({
               modifyRecipe(recipe), setShowModal(false);
             }}
           >
-            Create Recipe
+            MODIFY
           </Button>
         </Modal.Footer>
       </Modal>

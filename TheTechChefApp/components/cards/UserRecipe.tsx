@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react";
 import ModifyRecipe from "components/modalModifyRecipe/modifyRecipe";
 import { RecipeDTO } from "components/interfaces/interfaces";
 import Loading from "components/isLoading/Loading";
+import DeleteRecipe from "components/delete/delete";
 
 export const UserRecipe = ({ title }: { title: string }) => {
   const [recipe, setRecipe] = useState<RecipeDTO[]>([]);
@@ -38,9 +39,6 @@ export const UserRecipe = ({ title }: { title: string }) => {
     <>
       {session ? (
         <Container>
-          <div className="mb-5">
-            <h2>{title}</h2>
-          </div>
           <Row className="justify-content-around">
             {recipe
               .filter((rec) => rec.author)
@@ -67,7 +65,8 @@ export const UserRecipe = ({ title }: { title: string }) => {
                             recipePhotos: recipe.recipePhotos,
                           }}
                         />
-                        <h2 className="sticky-top ms-5">{recipe.title}</h2>
+                        <DeleteRecipe id={recipe.id} />
+                        <h2 className=" ms-5">{recipe.title}</h2>
                       </div>
                       <br />
                       <div>
