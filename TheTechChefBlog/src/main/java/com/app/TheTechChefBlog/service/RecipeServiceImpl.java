@@ -23,6 +23,7 @@ import com.app.TheTechChefBlog.payload.PutRecipedto;
 import com.app.TheTechChefBlog.payload.RecipeDTO;
 import com.app.TheTechChefBlog.repository.IngredientsRepository;
 import com.app.TheTechChefBlog.repository.RecipeRepository;
+import com.app.TheTechChefBlog.repository.UserRepository;
 
 @Service
 public class RecipeServiceImpl implements RecipeService {
@@ -32,7 +33,8 @@ public class RecipeServiceImpl implements RecipeService {
 	RecipeRepository recipeRepo;
 	@Autowired
 	IngredientsRepository ingredientRepo;
-
+	@Autowired
+	UserRepository userRepo;
 	public Recipe createRecipe(RecipeDTO recipeDTO) {
 		Recipe recipe = new Recipe();
 		recipe.setTitle(recipeDTO.getTitle());
@@ -81,12 +83,9 @@ public class RecipeServiceImpl implements RecipeService {
 
 	}
 
-	public List<Recipe> getRecipeByAuthor(TheTechChefUser user) {
-		if (!recipeRepo.findAll().isEmpty()) {
-			return recipeRepo.findByAuthor(user);
-		} else {
-			throw new MyAPIException(HttpStatus.NOT_FOUND, "........");
-		}
+	public List<Recipe> getRecipeByAuthor(Long id) {
+		TheTechChefUser u= userRepo.findById(id).get();
+		return recipeRepo.findByAuthor(u);
 
 	}
 

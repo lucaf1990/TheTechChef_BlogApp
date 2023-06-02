@@ -62,7 +62,7 @@ export const UserRecipe = ({ title }: { title: string }) => {
                             storageInstructions: recipe.storageInstructions,
                             ingredients: recipe.ingredients,
                             comments: recipe.comments,
-                            recipePhotos: recipe.recipePhotos,
+                            urlImag: recipe.recipePhotos,
                           }}
                         />
                         <DeleteRecipe id={recipe.id} />

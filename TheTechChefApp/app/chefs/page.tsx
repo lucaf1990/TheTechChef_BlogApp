@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
-
+import PersonAddAltSharpIcon from "@mui/icons-material/PersonAddAltSharp";
 import Loading from "components/isLoading/Loading";
 import { Zoom } from "react-awesome-reveal";
 import chef from "../assets/KillerFitfh_The_tech_chef_logo_a_minimal_3d_robot_llooking_like_1fe81dea-6145-44e1-a990-23c8d54cd7d1-PhotoRoom_png-PhotoRoom-transformed.png";
@@ -11,9 +11,21 @@ import style from "../../styles/Home.module.scss";
 import { SideBar } from "components/sidebar/SideBar";
 import { GlobalStyle } from "styles/global";
 import { Col, Container, Row } from "react-bootstrap";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import MailIcon from "@mui/icons-material/Mail";
+import { Dialog, DialogTitle, DialogContent } from "@mui/material";
+import CommentIcon from "@mui/icons-material/Comment";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import PostAddIcon from "@mui/icons-material/PostAdd";
+import SaveAltIcon from "@mui/icons-material/SaveAlt";
+import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import { BsInfo, BsInfoCircle } from "react-icons/bs";
+import Link from "next/link";
 
-export default function ChefsProfile() {
+export default function ChefsProfile({ id }: { id: User }) {
   const { data: session } = useSession();
+  const [open, setOpen] = useState(false);
 
   const [user, setUser] = useState<User[]>([]);
   async function fetchProfiles() {
@@ -35,7 +47,13 @@ export default function ChefsProfile() {
       console.log("Error: " + error);
     }
   }
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
+  const handleClose = () => {
+    setOpen(false);
+  };
   useEffect(() => {
     fetchProfiles();
   }, []);
@@ -74,15 +92,17 @@ export default function ChefsProfile() {
           </div>
           <div>
             <Container>
-              <Row className="w-100 justify-content-around">
-                {user.map((profile, index) => {
+              <Row className=" justify-content-around">
+                {user.slice(1).map((profile, index) => {
                   return (
                     <Col md={3} key={index}>
                       <div className={style.cardUser}>
                         <div
                           className={style.card_cover}
                           style={{
-                            backgroundImage: `url(${profile.urlPic})`,
+                            imageRendering: "auto",
+                            backgroundImage:
+                              "url(https://i.ibb.co/TThz6rB/Killer-Fitfh-The-tech-chef-logo-a-minimal-3d-robot-llooking-like-1fe81dea-6145-44e1-a990-23c8d54cd7d.png)",
                           }}
                         ></div>
                         <div
@@ -95,33 +115,74 @@ export default function ChefsProfile() {
                         <p className={style.name}>
                           {profile.name} {profile.lastName}
                         </p>
-                        <a href="https://www.instagram.com/harisimran2019/">
-                          <h6 className={style.id_link}>@harisimran2019</h6>
-                        </a>
-                        <i
-                          className={`${style.location_icon} fas fa-map-marker-alt`}
-                        ></i>
-                        <p className={style.country}>Pakistan</p>
 
-                        <a href="#" target="_blank">
-                          <button className={style.portfolio}>Follow</button>
-                        </a>
+                        <p className={style.country}>
+                          {" "}
+                          <span title="User details" onClick={handleOpen}>
+                            {" "}
+                            <BsInfoCircle
+                              style={{ fontSize: "2rem" }}
+                            ></BsInfoCircle>
+                          </span>
+                        </p>
+                        <Dialog open={open} onClose={handleClose}>
+                          <DialogTitle className="text-center ">
+                            USER CONTRIBUTIONS
+                          </DialogTitle>
+                          <div className={style.detailsCard}>
+                            <DialogContent className="d-flex justify-content-between ">
+                              <p>
+                                <PostAddIcon
+                                  style={{ fill: "orange" }}
+                                ></PostAddIcon>
+                                Posted <br /> {Math.floor(Math.random() * 15)}{" "}
+                                Recipes
+                              </p>
+                              <p>
+                                <FavoriteIcon
+                                  style={{ fill: "red" }}
+                                ></FavoriteIcon>
+                                Liked <br /> {Math.floor(Math.random() * 15)}{" "}
+                                Recipes
+                              </p>
+
+                              <p>
+                                <CommentIcon
+                                  style={{ fill: "black" }}
+                                ></CommentIcon>
+                                Comment <br />
+                                {Math.floor(Math.random() * 15)} Recipes
+                              </p>
+                              <p>
+                                <SaveAltIcon
+                                  style={{ fill: "green" }}
+                                ></SaveAltIcon>
+                                Saved <br /> {Math.floor(Math.random() * 15)}{" "}
+                                Recipes
+                              </p>
+                            </DialogContent>
+                          </div>
+                        </Dialog>
+
+                        <Link href={`/chefProfiles`}>
+                          <button className={style.portfolio}>
+                            <PersonAddAltSharpIcon style={{ fill: "white" }} />
+                          </button>
+                        </Link>
 
                         <div className={style.social_icons}>
                           <a href="#" target="_blank">
-                            <i
-                              className={`${style.facebook} fab fa-facebook`}
-                            ></i>
+                            <FacebookIcon
+                              className={style.facebook}
+                            ></FacebookIcon>
                           </a>
                           <a href="#" target="_blank">
-                            <i
-                              className={`${style.instagram} fab fa-instagram`}
-                            ></i>
+                            <InstagramIcon
+                              className={`${style.instagram}`}
+                            ></InstagramIcon>
                           </a>
                           <a href="#" target="_blank">
-                            <i
-                              className={`${style.patreon} fab fa-patreon`}
-                            ></i>
+                            <MailIcon className={`${style.patreon}`}></MailIcon>
                           </a>
                         </div>
                       </div>

@@ -63,7 +63,8 @@ public class RecipeController {
 
 	}
 	@GetMapping("/all")
-	@PreAuthorize("hasRole('ROLE_TECHCHEF_ADMIN') or hasRole('ROLE_TECHCHEF_USER')")
+	
+
 	public ResponseEntity<?> findAll() {
 		return new ResponseEntity<List<Recipe>>(recipeService.getAllRecipe(), HttpStatus.OK);
 
@@ -90,10 +91,10 @@ public class RecipeController {
 
 	}
 
-	@GetMapping("/author/{user}")
+	@GetMapping("/author/{id}")
 	@PreAuthorize("hasRole('ROLE_TECHCHEF_ADMIN') or hasRole('ROLE_TECHCHEF_USER')")
-	public ResponseEntity<List<Recipe>> findRecipesByAuthor(@PathVariable TheTechChefUser user) {
-		return new ResponseEntity<List<Recipe>>(recipeService.getRecipeByAuthor(user), HttpStatus.OK);
+	public ResponseEntity<List<Recipe>> findRecipesByAuthor(@PathVariable Long id) {
+		return new ResponseEntity<List<Recipe>>(recipeService.getRecipeByAuthor(id), HttpStatus.OK);
 
 	}
 

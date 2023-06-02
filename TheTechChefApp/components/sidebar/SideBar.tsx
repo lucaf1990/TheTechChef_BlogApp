@@ -8,11 +8,15 @@ import {
   BsArrowLeft,
   RiLogoutCircleRLine,
   BsSearch,
+  SiChef,
 } from "react-icons/all";
+import HomeIcon from "@mui/icons-material/Home";
+import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople";
 import RestaurantSharpIcon from "@mui/icons-material/Restaurant";
 import logoImg from "../../app/assets/KillerFitfh_The_tech_chef_logo_a_minimal_3d_robot_llooking_like_1fe81dea-6145-44e1-a990-23c8d54cd7d1-PhotoRoom_png-PhotoRoom-transformed.png";
 import Image from "next/image";
 import AssignmentIndSharpIcon from "@mui/icons-material/AssignmentIndSharp";
+
 import { signOut } from "next-auth/react";
 export function SideBar() {
   const [sideBar, setSideBar] = useState(false);
@@ -44,9 +48,15 @@ export function SideBar() {
                 <a href="/search" title="Search">
                   <BsSearch></BsSearch>
                 </a>
-                <a href="/main" title="TheTechChef"></a>
+                <a href="/main" title="TheTechChef">
+                  {" "}
+                  <HomeIcon></HomeIcon>
+                </a>
                 <a href="/profile" title="Profile">
                   <AssignmentIndSharpIcon />
+                </a>
+                <a href="/chefs" title="Our Chefs">
+                  <EmojiPeopleIcon></EmojiPeopleIcon>
                 </a>
               </ul>
             </nav>
@@ -55,7 +65,7 @@ export function SideBar() {
                 <a href="/" title="Notifications">
                   <IoNotificationsSharp />
                 </a>
-                <a href="/" title="Settings">
+                <a href="/profile" title="Settings">
                   <MdSettings />
                 </a>
                 <a
@@ -93,11 +103,16 @@ export function SideBar() {
                     <p style={{ color: "#e67402" }}>Food Lover</p>
                   </a>
                   <a href="/main" title="TheTechChef">
+                    <HomeIcon></HomeIcon>
                     <p style={{ color: "#e67402" }}>TechChef</p>
                   </a>
                   <a href="/profile" title="Profile">
                     <AssignmentIndSharpIcon />
                     <p style={{ color: "#e67402" }}>Profile</p>
+                  </a>
+                  <a href="/chefs" title="Our Chefs">
+                    <EmojiPeopleIcon></EmojiPeopleIcon>
+                    <p style={{ color: "#e67402" }}>Our Chefs</p>
                   </a>
                 </ul>
               </nav>
