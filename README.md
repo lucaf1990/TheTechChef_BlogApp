@@ -20,6 +20,8 @@ The Tech Chef offers a range of exciting features to enhance your recipe experie
 The Tech Chef leverages a variety of technologies to deliver its robust functionality:
 [Watch the Video on Linkedin](https://www.linkedin.com/feed/update/urn:li:activity:7068879766312894464/)
 
+[TheTechChef](http://localhost:3000)
+
 ### Frontend 🌐🖥️
 
 - JavaScript 🟨 (@fortawesome/fontawesome-svg-core: Font Awesome SVG icons library)
