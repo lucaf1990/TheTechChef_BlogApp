@@ -18,6 +18,7 @@ import Image from "next/image";
 import AssignmentIndSharpIcon from "@mui/icons-material/AssignmentIndSharp";
 
 import { signOut } from "next-auth/react";
+import Link from "next/link";
 export function SideBar() {
   const [sideBar, setSideBar] = useState(false);
 
@@ -42,32 +43,32 @@ export function SideBar() {
                 ></Image>
               </button>
               <ul>
-                <a href="/myRecipe" title="Your recipe">
+                <Link href="/myRecipe" title="Your recipe">
                   <RestaurantSharpIcon />
-                </a>
-                <a href="/search" title="Search">
+                </Link>
+                <Link href="/search" title="Search">
                   <BsSearch></BsSearch>
-                </a>
-                <a href="/main" title="TheTechChef">
+                </Link>
+                <Link href="/main" title="TheTechChef">
                   {" "}
                   <HomeIcon></HomeIcon>
-                </a>
-                <a href="/profile" title="Profile">
+                </Link>
+                <Link href="/profile" title="Profile">
                   <AssignmentIndSharpIcon />
-                </a>
-                <a href="/chefs" title="Our Chefs">
+                </Link>
+                <Link href="/chefs" title="Our Chefs">
                   <EmojiPeopleIcon></EmojiPeopleIcon>
-                </a>
+                </Link>
               </ul>
             </nav>
             <div>
               <ul>
-                <a href="/" title="Notifications">
+                <Link href="/" title="Notifications">
                   <IoNotificationsSharp />
-                </a>
-                <a href="/profile" title="Settings">
+                </Link>
+                <Link href="/profile" title="Settings">
                   <MdSettings />
-                </a>
+                </Link>
                 <a
                   onClick={() => {
                     signOut({ callbackUrl: "/" });
@@ -94,39 +95,39 @@ export function SideBar() {
                   <h6 style={{ color: "#e67402" }}>THE TECH CHEF</h6>
                 </div>
                 <ul>
-                  <a href="/myRecipe" title="Your recipe">
+                  <Link href="/myRecipe" title="Your recipe">
                     <RestaurantSharpIcon />
                     <p style={{ color: "#e67402" }}>Your recipe</p>
-                  </a>
-                  <a href="/search" title="Food you Love">
+                  </Link>
+                  <Link href="/search" title="Food you Love">
                     <BsSearch></BsSearch>
                     <p style={{ color: "#e67402" }}>Food Lover</p>
-                  </a>
-                  <a href="/main" title="TheTechChef">
+                  </Link>
+                  <Link href="/main" title="TheTechChef">
                     <HomeIcon></HomeIcon>
                     <p style={{ color: "#e67402" }}>TechChef</p>
-                  </a>
-                  <a href="/profile" title="Profile">
+                  </Link>
+                  <Link href="/profile" title="Profile">
                     <AssignmentIndSharpIcon />
                     <p style={{ color: "#e67402" }}>Profile</p>
-                  </a>
-                  <a href="/chefs" title="Our Chefs">
+                  </Link>
+                  <Link href="/chefs" title="Our Chefs">
                     <EmojiPeopleIcon></EmojiPeopleIcon>
                     <p style={{ color: "#e67402" }}>Our Chefs</p>
-                  </a>
+                  </Link>
                 </ul>
               </nav>
               <div>
                 <ul>
-                  <a href="/">
+                  <Link href="/">
                     <IoNotificationsSharp />
                     <p style={{ color: "#e67402" }}>Notifications</p>
-                  </a>
-                  <a href="/">
+                  </Link>
+                  <Link href="/">
                     <MdSettings />
                     <p style={{ color: "#e67402" }}>Settings</p>
-                  </a>
-                  <a href="/">
+                  </Link>
+                  <Link href="/">
                     <RiLogoutCircleRLine />
                     <p
                       onClick={() => {
@@ -137,7 +138,7 @@ export function SideBar() {
                       {" "}
                       Sign-out{" "}
                     </p>
-                  </a>
+                  </Link>
                 </ul>
               </div>
             </section>

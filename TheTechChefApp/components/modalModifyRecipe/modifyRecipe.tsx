@@ -127,15 +127,15 @@ const ModifyRecipe: React.FC<ModifyRecipeProps & { recipe: Recipe }> = ({
               <option disabled={true} value="">
                 Category
               </option>
-              <option value="Appetizers">©</option>
-              <option value="Main course">©</option>
-              <option value="Soups & Stews">© & Stews</option>
-              <option value="Salads">©</option>
-              <option value="Desserts">©</option>
-              <option value="Breakfast">©</option>
-              <option value="Snacks">©</option>
-              <option value="Baking">©</option>
-              <option value="Drinks">©</option>
+              <option value="Appetizers">Appetizers</option>
+              <option value="Main course">Main course</option>
+              <option value="Soups & Stews">Soups & Stews</option>
+              <option value="Salads">Salads</option>
+              <option value="Desserts">Desserts</option>
+              <option value="Breakfast">Breakfast</option>
+              <option value="Snacks">Snacks</option>
+              <option value="Baking">Baking</option>
+              <option value="Drinks">Drinks</option>
             </Form.Select>
           </Form.Group>
           <Form.Group controlId="Preparation_Time">

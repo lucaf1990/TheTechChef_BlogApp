@@ -550,14 +550,12 @@
 .InputLabel {
   display: flex;
   height: 2rem;
-
-  background-color: #e67402;
   border-radius: 10px;
   margin-top: 2rem;
-  color: white !important;
+  color: rgb(0, 0, 0) !important;
   cursor: pointer;
   .InputLabel::placeholder {
-    color: white;
+    color: rgb(0, 0, 0);
   }
 }
 .comment_section {
@@ -694,11 +692,12 @@
 }
 
 .cardUser {
-  margin-top: 15rem;
+  margin-inline-start: 5rem;
+  margin: 1.5rem;
   transform: translate(-50%, -50%);
   width: 300px;
-  height: 350px;
-  background-color: #ff8832;
+  height: 450px;
+
   border-radius: 6px;
   box-shadow: 0 1px 3px rgb(255, 255, 255, 0.7),
     0 3px 18px rgba(82, 80, 80, 0.6);
@@ -708,7 +707,7 @@
 
 .card_cover {
   position: absolute;
-  left: 70%;
+  left: 50%;
   top: 25%;
   transform: translate(-50%, -50%);
   width: 60%;
@@ -718,21 +717,27 @@
   background-position: center;
   background-repeat: no-repeat;
   transition: all 0.3s ease;
-
+  object-fit: cover;
+  width: 100%;
+  object-position: center;
+  aspect-ratio: 1.1;
   background-size: cover;
+  transition: 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: 3;
 }
 
 .profileUser {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  background-size: 80px;
+  left: 3%;
+  top: 3%;
+  width: 70%;
+  height: 50%;
+  background-size: 210px;
+  object-fit: cover;
+  object-position: center;
   background-repeat: no-repeat;
-  background-position: center;
   border-radius: 13px;
   border: 3.5px solid white;
-  left: 7%;
-  top: 29%;
+
   transition: 0.4s cubic-bezier(0.65, 0, 0.35, 1);
   z-index: 3;
 }

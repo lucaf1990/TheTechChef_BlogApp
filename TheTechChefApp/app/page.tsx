@@ -11,7 +11,7 @@ import { animated } from "react-spring";
 import { Props } from "components/interfaces/interfaces";
 import { Container } from "react-bootstrap";
 
-const HomePage = ({ size }: Props) => {
+const HomePage = () => {
   const [firstEntrance, setFirstEntrance] = useState(0);
   const [showRobot, setShowRobot] = useState(false);
   const [message, setMessage] = useState(false);

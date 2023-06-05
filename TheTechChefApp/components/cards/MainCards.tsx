@@ -18,7 +18,7 @@ export const CardMain = ({ title }: { title: string }) => {
   const [openComments, setOpenComments] = useState<Comment[]>([]);
   const [comments, setComments] = useState<Comment[]>([]);
   const [favorite, setFavorite] = useState<number[]>([]);
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   useEffect(() => {
     const savedFavorites = localStorage.getItem("favorites");
     if (savedFavorites) {
@@ -103,7 +103,7 @@ export const CardMain = ({ title }: { title: string }) => {
             {recipe
               .map((recipe, i) => ({ ...recipe, index: i }))
               .sort((a, b) => b.index - a.index)
-              .slice(0, 10)
+              .slice(0, 16)
               .map((recipe, index) => {
                 // @ts-ignore
                 const isCommentsOpen = openComments.includes(recipe.id);

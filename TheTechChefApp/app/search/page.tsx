@@ -190,14 +190,14 @@ export default function Favorites() {
                       <div
                         title="Less than 15 minutes"
                         className={`${style.block} ${
-                          activeBlock === "Less than 15 minutes"
+                          activeBlock === "Around 20 minutes"
                             ? style.active
                             : ""
                         }`}
                         onClick={() => {
                           handleBlockClick(
                             "preparationTime",
-                            "Less than 15 minutes"
+                            "Around 20 minutes"
                           );
                         }}
                       >

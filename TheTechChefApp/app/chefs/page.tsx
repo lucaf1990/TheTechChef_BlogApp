@@ -23,7 +23,7 @@ import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import { BsInfo, BsInfoCircle } from "react-icons/bs";
 import Link from "next/link";
 
-export default function ChefsProfile({ id }: { id: User }) {
+export default function ChefsProfile() {
   const { data: session } = useSession();
   const [open, setOpen] = useState(false);
 
@@ -67,20 +67,11 @@ export default function ChefsProfile({ id }: { id: User }) {
             <GlobalStyle />
           </div>
           <div className={style.mainPage}>
-            <section>
-              <h1>The Tech Chef</h1>
-              <p
-                style={{
-                  textAlign: "end",
-                  fontSize: "1.5em",
-                  color: "black",
-                }}
-              >
-                A taste of innovation in every byte
-              </p>
-            </section>
-            <section className="me-3 d-flex flex-column m-0">
-              <Zoom direction="left" triggerOnce delay={300}>
+            <Zoom>
+              <h1>CHECK OUT MORE TECH CHEF LIKE YOU</h1>
+            </Zoom>
+            <section className="mt-5 pt-5 d-flex flex-column m-0">
+              <Zoom direction="left" triggerOnce delay={100}>
                 <Image
                   src={chef}
                   alt={"chef foto"}
@@ -90,21 +81,14 @@ export default function ChefsProfile({ id }: { id: User }) {
               </Zoom>
             </section>
           </div>
+
           <div>
-            <Container>
-              <Row className=" justify-content-around">
+            <Container className="mt-5">
+              <Row className="flex-wrap">
                 {user.slice(1).map((profile, index) => {
                   return (
                     <Col md={3} key={index}>
                       <div className={style.cardUser}>
-                        <div
-                          className={style.card_cover}
-                          style={{
-                            imageRendering: "auto",
-                            backgroundImage:
-                              "url(https://i.ibb.co/TThz6rB/Killer-Fitfh-The-tech-chef-logo-a-minimal-3d-robot-llooking-like-1fe81dea-6145-44e1-a990-23c8d54cd7d.png)",
-                          }}
-                        ></div>
                         <div
                           className={style.profileUser}
                           style={{

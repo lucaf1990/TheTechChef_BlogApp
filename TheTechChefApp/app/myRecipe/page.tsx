@@ -14,6 +14,7 @@ import { IngredientSearch } from "app/myRecipe/IngredientSearch";
 import { UserRecipe } from "components/cards/UserRecipe";
 import { Ingredient, Ingredients } from "components/interfaces/interfaces";
 import Loading from "components/isLoading/Loading";
+import { getRecipe } from "app/API/lib/getAllRecipe";
 
 const MyRecipe = () => {
   const { data: session } = useSession();
@@ -30,6 +31,7 @@ const MyRecipe = () => {
   const [storageInstructions, setStorageInstructions] = useState("");
   const [ingredients, setIngredients] = useState<Ingredients[]>([]);
   const [ingredientName, setIngredientName] = useState("");
+  const [urlPic, setUrlPic] = useState("");
 
   async function postRecipe(ingredients: Ingredient[]) {
     const recipeDTO = {
@@ -43,7 +45,7 @@ const MyRecipe = () => {
       presentation: presentation,
       storageInstructions: storageInstructions,
       ingredients: ingredients,
-      urlImag: selectedImage,
+      urlImag: urlPic,
     };
     try {
       const data = await fetch("http://localhost:8080/recipe/create", {
@@ -228,7 +230,7 @@ const MyRecipe = () => {
                         onChange={(e) => setDifficultyLevel(e.target.value)}
                       >
                         <option disabled={true} value="">
-                          Difficulty
+                          Cost
                         </option>
                         <option value="Low cost">Low cost</option>
                         <option value="Medium cost">Medium cost</option>
@@ -244,7 +246,7 @@ const MyRecipe = () => {
                         onChange={(e) => setCostLevel(e.target.value)}
                       >
                         <option disabled={true} value="">
-                          Cost
+                          Difficulty
                         </option>
                         <option value="Easy">Easy</option>
                         <option value="Intermediate">Intermediate</option>
@@ -311,7 +313,10 @@ const MyRecipe = () => {
                           type="file"
                           id="fileInput"
                           className={style.fileInput}
-                          onChange={handleImageUpload}
+                          onChange={(e) => {
+                            handleImageUpload(e);
+                            setUrlPic(e.target.value);
+                          }}
                           accept="image/*"
                         />
                       </div>

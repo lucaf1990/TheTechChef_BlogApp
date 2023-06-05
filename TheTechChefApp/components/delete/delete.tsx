@@ -16,7 +16,7 @@ const DeleteRecipe: React.FC<{ id: number }> = ({ id }) => {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJsdWNhZiIsImlhdCI6MTY4NTA0ODMxMCwiZXhwIjoxNjg1NjUzMTEwfQ.siQBuy2oM0aFN0TjXIdrZ8O1yMquYNf_JVaLm3hcVi-s3yQFOwwS2RzOhc4xR8xv`,
+          Authorization: `Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJsdWNhZiIsImlhdCI6MTY4NTc4NTU0MiwiZXhwIjoxNjg2MzkwMzQyfQ.8TgKqeY5pqUyVB92snfhrCHT6HYN6b2sHM-K4iVD3GQJMmI3-NbEhWTPEAzZoADz`,
         },
       });
 
